@@ -24,7 +24,7 @@ export default function RootLayout({
         <SidebarProvider>
           <AppSidebar/>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="flex flex-col min-h-screen w-full">
+            <div className="flex flex-col w-full">
               <Navbar/>
               {children}
             </div>
