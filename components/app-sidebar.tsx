@@ -6,9 +6,11 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarSeparator,
 } from "@/components/ui/sidebar"
 
 // Menu items.
@@ -43,9 +45,18 @@ const items = [
 export function AppSidebar() {
   return (
     <Sidebar>
+      <SidebarHeader className="items-center flex flex-row justify-around pt-[18px] pb-[18px]">
+        <h1 className="text-xl">
+          22/05/25
+        </h1>
+        <h1 className="text-xl">
+          18:45
+        </h1>
+      </SidebarHeader>
+      <SidebarSeparator />
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-lg">Application</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (

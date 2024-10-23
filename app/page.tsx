@@ -1,10 +1,9 @@
-import { ThemeSwitch } from "../components/theme-switch";
+import Navbar from "@/components/navbar";
 
 export default function Home() {
   return (
-    <div >
-      <h1>Hello</h1>
-      <ThemeSwitch/>
+    <div className="flex flex-col min-h-screen w-full">
+      <Navbar/>
     </div>
   );
 }
