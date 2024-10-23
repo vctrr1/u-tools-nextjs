@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import Navbar from "@/components/navbar";
 
 const darkGrotesque = Darker_Grotesque({subsets: ['latin']})
 
@@ -23,7 +24,10 @@ export default function RootLayout({
         <SidebarProvider>
           <AppSidebar/>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            {children}
+            <div className="flex flex-col min-h-screen w-full">
+              <Navbar/>
+              {children}
+            </div>
           </ThemeProvider>
         </SidebarProvider>
       </body>
