@@ -17,7 +17,7 @@ export function ThemeSwitch() {
   }, [])
 
   if (!mounted) {
-    return null
+    return <div className="w-[2.5rem] h-[2.5rem]"/>
   }
 
   const toggleTheme = () => {
