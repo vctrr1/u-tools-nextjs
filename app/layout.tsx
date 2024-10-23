@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { Darker_Grotesque } from "next/font/google"
 import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+
+const darkGrotesque = Darker_Grotesque({subsets: ['latin']})
 
 export const metadata: Metadata = {
   title: "Utools",
@@ -16,11 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br" suppressHydrationWarning>
-      <body>
+      <body className={darkGrotesque.className}>
         <SidebarProvider>
           <AppSidebar/>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <SidebarTrigger />
             {children}
           </ThemeProvider>
         </SidebarProvider>
