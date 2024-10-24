@@ -1,5 +1,5 @@
-import { Home, Inbox} from "lucide-react"
-
+"use client"
+import { Home, CircleDollarSign , Scale } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -12,22 +12,30 @@ import {
   SidebarMenuItem,
   SidebarSeparator,
 } from "@/components/ui/sidebar"
+import { usePathname } from "next/navigation"
 
 // Menu items.
 const items = [
   {
-    title: "Imc",
-    url: "/imc",
+    title: "Home",
+    url: "/",
     icon: Home,
+  },
+  {
+    title: "IMC",
+    url: "/imc",
+    icon: Scale,
   },
   {
     title: "Conversão",
     url: "/currency",
-    icon: Inbox,
+    icon: CircleDollarSign
+,
   }
 ]
 
 export function AppSidebar() {
+  const pathname = usePathname()
   return (
     <Sidebar>
       <SidebarHeader className="items-center flex flex-row justify-around pt-[18px] pb-[18px]">
@@ -41,15 +49,15 @@ export function AppSidebar() {
       <SidebarSeparator />
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-lg">Application</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-lg">Úteis</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
+                  <SidebarMenuButton asChild isActive={pathname === item.url}>
+                    <a href={item.url} className="flex items-center space-x-1">
+                      <item.icon/>
+                      <span className="text-base">{item.title}</span>
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
