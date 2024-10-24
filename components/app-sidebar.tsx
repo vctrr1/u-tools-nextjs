@@ -1,5 +1,5 @@
 "use client"
-import { Home, CircleDollarSign , Scale, Calendar1, Weight, Calculator, Cylinder, Percent, WholeWord, Variable } from "lucide-react"
+import { Home } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -14,77 +14,42 @@ import {
 } from "@/components/ui/sidebar"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
-
-// Menu items.
-const items = [
-  {
-    title: "IMC",
-    url: "/imc",
-    icon: Weight,
-  },
-  {
-    title: "Conversão",
-    url: "/currency",
-    icon: CircleDollarSign,
-  }
-]
-
-const items2 = [
-  {
-    title: "Calculadora",
-    url: "/",
-    icon: Calculator,
-  },
-  {
-    title: "Porcentagem",
-    url: "/currency",
-    icon: Percent,
-  },
-  {
-    title: "Conversão de Unidades",
-    url: "/imc",
-    icon: Scale,
-  },
-  {
-    title: "Datas",
-    url: "/currency",
-    icon: Calendar1,
-  },
-  {
-    title: "Área",
-    url: "/currency",
-    icon: Cylinder,
-  },
-  {
-    title: "Conversor de Números Romanos",
-    url: "/currency",
-    icon: WholeWord,
-  },
-  {
-    title: "Regra de Três",
-    url: "/currency",
-    icon: Variable,
-  }
-]
-
-
+import { calcItems, utilsItems } from "@/constants/page-constants"
 
 export function AppSidebar() {
+
   const pathname = usePathname()
+
+  const date = new Date()
+
+  const dateFormatter = (date: Date) => {
+    return new Intl.DateTimeFormat('pt-BR', {
+      dateStyle: 'short',
+    }).format(date)
+  }
+
+  const hourFormatter = (date: Date) => {
+    return new Intl.DateTimeFormat('pt-BR', {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false
+    }).format(date)
+  }
+
   return (
     <Sidebar>
       <SidebarHeader className="items-center flex flex-row justify-around pt-[18px] pb-[18px]">
         <h1 className="text-xl">
-          22/05/25
+          {dateFormatter(date)}
         </h1>
         <h1 className="text-xl">
-          18:45
+          {hourFormatter(date)}
         </h1>
       </SidebarHeader>
       <SidebarSeparator />
       <SidebarContent>
-        <div className="pt-7 pl-2">
-          <SidebarMenuButton asChild className="">
+        <div className="pt-5 pl-2">
+          <SidebarMenuButton asChild isActive={pathname === "/"}>
            <Link href="/">
              <Home />
              <span className="text-base">Home</span>
@@ -95,7 +60,7 @@ export function AppSidebar() {
           <SidebarGroupLabel className="text-lg">Úteis</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => (
+              {utilsItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild isActive={pathname === item.url}>
                     <Link href={item.url} className="flex items-center space-x-1">
@@ -112,7 +77,7 @@ export function AppSidebar() {
           <SidebarGroupLabel className="text-lg">Calculadoras</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {items2.map((item) => (
+              {calcItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild isActive={pathname === item.url}>
                     <Link href={item.url} className="flex items-center space-x-1">
