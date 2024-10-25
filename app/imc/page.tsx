@@ -104,7 +104,7 @@ function Imc() {
                         )}
                     </section>
                     <section id="referenceTable" className="flex justify-center">
-                        <table className="w-[60%]">
+                        <table className="sm:w-[70%] w-[90%]">
                             <thead className="text-rose-300">
                                 <tr>
                                     <th className="px-6 py-2 text-left">IMC</th>
