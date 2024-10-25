@@ -56,7 +56,7 @@ function Imc() {
 
     return ( 
         <main className="flex justify-center items-center h-[100%]">
-            <Card className="w-[60%]">
+            <Card className="sm:w-[60%] w-[90%]">
                 <CardHeader>
                     <CardTitle className="text-center text-2xl">
                         IMC
@@ -74,7 +74,11 @@ function Imc() {
                                 <label htmlFor="weight" className="text-lg">Peso (kg):</label>
                                 <Input type="text" id="weight" name="weight"/>
                             </div>
-                            <Button className="w-full text-base" type="submit">Calcular</Button>
+                            {imcData ? (
+                                <Button className="w-full text-base" type="submit">Refazer</Button>
+                            ) : (
+                                <Button className="w-full text-base" type="submit">Calcular</Button>
+                            )}
                         </form>
                     </section>
                     <section id="result" className=" m-5 w-full">
