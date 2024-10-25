@@ -56,7 +56,7 @@ function Imc() {
 
     return ( 
         <main className="flex justify-center items-center h-[100%]">
-            <Card className="sm:w-[60%] w-[90%]">
+            <Card className="sm:w-[60%] w-[90%] mt-5 mb-5">
                 <CardHeader>
                     <CardTitle className="text-center text-2xl">
                         IMC
@@ -81,21 +81,21 @@ function Imc() {
                             )}
                         </form>
                     </section>
-                    <section id="result" className=" m-5 w-full">
+                    <section id="result" className="w-full flex justify-center pt-5 pb-5">
                         {imcData ? (
-                            <table className="w-full text-center">
+                            <table className="sm:w-[80%] w-full text-center">
                                 <tbody>
                                     <tr className="font-bold">
                                         <td>Peso</td>
-                                        <td>Altura</td>
-                                        <td>IMC</td>
-                                        <td>Resultado</td>
+                                        <td className="text-right">Altura</td>
+                                        <td className="text-right">IMC</td>
+                                        <td className="text-right">Resultado</td>
                                     </tr>
                                     <tr>
-                                        <td>{formatNumber(imcData.weight) }</td>
-                                        <td>{formatNumber(imcData.height * 100, 0)}</td>
-                                        <td>{formatNumber(imcData.imc) }</td>
-                                        <td>{imcData.imcResult}</td>
+                                        <td >{formatNumber(imcData.weight) }</td>
+                                        <td className="text-right">{formatNumber(imcData.height * 100, 0)}</td>
+                                        <td className="text-right">{formatNumber(imcData.imc) }</td>
+                                        <td className="text-right">{imcData.imcResult}</td>
                                     </tr>
                                 </tbody>
                             </table>
