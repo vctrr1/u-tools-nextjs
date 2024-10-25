@@ -56,14 +56,14 @@ function Imc() {
 
     return ( 
         <main className="flex justify-center items-center h-[100%]">
-            <Card className="sm:w-[60%] w-[90%] mt-5 mb-5">
+            <Card className="w-[90%] sm:w-[90%] md:w-[90%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] mt-5 mb-5">
                 <CardHeader>
                     <CardTitle className="text-center text-2xl">
                         IMC
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <section id="form">
+                    <section id="form" className="pb-5">
                         <form onSubmit={handleSubmit} className="space-y-2 pt-5">
                             <div>
                                 <label htmlFor="height" className="text-lg">Altura (cm):</label>
@@ -81,7 +81,7 @@ function Imc() {
                             )}
                         </form>
                     </section>
-                    <section id="result" className="w-full flex justify-center pt-5 pb-5">
+                    <section id="result" className="w-full flex justify-center items-center pt-3 pb-3 border rounded-md shadow-md">
                         {imcData ? (
                             <table className="sm:w-[80%] w-full text-center">
                                 <tbody>
