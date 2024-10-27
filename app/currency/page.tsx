@@ -1,3 +1,4 @@
+import { SelectCurrency } from "@/components/select-currency";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -11,10 +12,16 @@ function Currency() {
                     Faça sua conversão
                 </CardHeader>
                 <CardContent>
-                    <div className="flex flex-col items-center space-y-2 pb-5">
-                        <Input/>
+                    <div className="flex flex-col items-center space-y-3 pb-5">
+                        <div className="flex space-x-2 w-full">
+                            <SelectCurrency/>
+                            <Input/>
+                        </div>
                         <ArrowDownUp size={18} strokeWidth={1.25}/>
-                        <Input/>
+                        <div className="flex space-x-2 w-full">
+                            <SelectCurrency/>
+                            <Input/>
+                        </div>
                     </div>
                     <Button className="w-full">Converter</Button>
                 </CardContent>
