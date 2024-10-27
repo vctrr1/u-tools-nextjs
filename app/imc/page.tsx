@@ -89,13 +89,13 @@ function Imc() {
                                         <td>Peso</td>
                                         <td className="text-right">Altura</td>
                                         <td className="text-right">IMC</td>
-                                        <td className="text-right">Resultado</td>
+                                        <td className="text-center">Resultado</td>
                                     </tr>
                                     <tr>
                                         <td >{formatNumber(imcData.weight) }</td>
                                         <td className="text-right">{formatNumber(imcData.height * 100, 0)}</td>
                                         <td className="text-right">{formatNumber(imcData.imc) }</td>
-                                        <td className="text-right">{imcData.imcResult}</td>
+                                        <td className="text-center">{imcData.imcResult}</td>
                                     </tr>
                                 </tbody>
                             </table>
