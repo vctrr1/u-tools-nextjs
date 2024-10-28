@@ -9,7 +9,7 @@ import { useState } from "react";
 import CurrencyConversion from "@/actions/currency-api";
 import {motion} from "framer-motion"
 
-function Currency() {
+export default function Currency() {
     
     const [amount, setAmount] = useState(0)
     const [currencyBase, setCurrencyBase] = useState("")
@@ -73,5 +73,3 @@ function Currency() {
         </main>
      );
 }
-
-export default Currency;

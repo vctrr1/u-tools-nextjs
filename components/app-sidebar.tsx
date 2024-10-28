@@ -11,12 +11,15 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarSeparator,
+  useSidebar,
 } from "@/components/ui/sidebar"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { calcItems, utilsItems } from "@/constants/page-constants"
 
 export function AppSidebar() {
+
+  const {setOpen, setOpenMobile, isMobile} = useSidebar()
 
   const pathname = usePathname()
 
@@ -26,6 +29,14 @@ export function AppSidebar() {
     return new Intl.DateTimeFormat('pt-BR', {
       dateStyle: 'short',
     }).format(date)
+  }
+
+  const handleClick = () => {
+    if(isMobile){
+      setOpenMobile(false)
+    }else {
+      setOpen(true)
+    }
   }
 
   return (
@@ -38,7 +49,7 @@ export function AppSidebar() {
       <SidebarSeparator />
       <SidebarContent>
         <div className="pt-5 pl-2">
-          <SidebarMenuButton asChild isActive={pathname === "/"}>
+          <SidebarMenuButton onClick={handleClick} asChild isActive={pathname === "/"}>
            <Link href="/">
              <Home />
              <span className="text-base">Home</span>
@@ -50,7 +61,7 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {utilsItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
+                <SidebarMenuItem key={item.title} onClick={handleClick}>
                   <SidebarMenuButton asChild isActive={pathname === item.url}>
                     <Link href={item.url} className="flex items-center space-x-1">
                       <item.icon/>
@@ -67,7 +78,7 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {calcItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
+                <SidebarMenuItem key={item.title} onClick={handleClick}>
                   <SidebarMenuButton asChild isActive={pathname === item.url}>
                     <Link href={item.url} className="flex items-center space-x-1">
                       <item.icon/>
