@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { ArrowLeftRight  } from 'lucide-react';
 import { useState } from "react";
-import  axios from 'axios'
+import CurrencyConversion from "@/actions/currency-api";
 
 function Currency() {
     
@@ -15,19 +15,16 @@ function Currency() {
     const [currencyTarget, setCurrencyTarget] = useState("")
     const [rates, setRate] = useState<number| null>(null);
     
-    const handleSubmit = async () => {
+    const handleSubmit = async (currencyBase:string, currencyTarget: string) => {
         if (!currencyBase || !currencyTarget) {
             alert("Selecione as moedas.");
             return;
         }
-        
-        try {
-            const api = process.env.NEXT_PUBLIC_CURRENCY_API_KEY
-            const response = await axios.get(`https://v6.exchangerate-api.com/v6/${api}/pair/${currencyBase}/${currencyTarget}`)
-            setRate(response.data.conversion_rate)
-        } catch (error) {
-            console.error("Erro ao buscar câmbio:", error);
-            setRate(null); // Em caso de erro, reseta a taxa para `null`
+        const result = await CurrencyConversion(currencyBase, currencyTarget)
+        if(result) {
+            setRate(result)
+        }else {
+            alert("Erro ao converter")
         }
     }
 
@@ -55,7 +52,7 @@ function Currency() {
                             </div>
                         </div>
                     </div>
-                    <Button onClick={handleSubmit} className="w-full">Converter</Button>
+                    <Button onClick={() => handleSubmit(currencyBase, currencyTarget)} className="w-full">Converter</Button>
                     {amount !== 0 && rates !== null &&(
                         <div className="text-center mt-4 text-lg">
                           Resultado: {amount} {currencyBase} = {(amount * rates).toFixed(2)} {currencyTarget}
