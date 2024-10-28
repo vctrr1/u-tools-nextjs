@@ -28,22 +28,11 @@ export function AppSidebar() {
     }).format(date)
   }
 
-  const hourFormatter = (date: Date) => {
-    return new Intl.DateTimeFormat('pt-BR', {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false
-    }).format(date)
-  }
-
   return (
     <Sidebar>
-      <SidebarHeader className="items-center flex flex-row justify-around pt-[18px] pb-[18px]">
+      <SidebarHeader className="items-center pt-[18px] pb-[18px]">
         <h1 className="text-xl">
           {dateFormatter(date)}
-        </h1>
-        <h1 className="text-xl">
-          {hourFormatter(date)}
         </h1>
       </SidebarHeader>
       <SidebarSeparator />
