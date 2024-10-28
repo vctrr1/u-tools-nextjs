@@ -37,17 +37,17 @@ function Currency() {
                 <CardContent>
                     <div className="flex flex-col items-center space-y-3 pb-5">
                         <div className="flex flex-col w-full">
-                            <label>Digite a quantidade</label>
+                            <label>Digite a quantidade:</label>
                             <Input type="number" onChange={(e) => setAmount(Number(e.target.value))}/>
                         </div>
                         <div className="flex space-x-4 items-center w-full">
                             <div className="w-full">
-                                <label>Moeda Origem</label>
+                                <label>Moeda Origem:</label>
                                 <SelectCurrency onChange={setCurrencyBase} value={currencyBase}/>
                             </div>
                             <ArrowLeftRight size={18} strokeWidth={1.25} className="flex-shrink-0 mt-5"/>
                             <div className="w-full">
-                                <label>Moeda Destino</label>
+                                <label>Moeda Destino:</label>
                                 <SelectCurrency onChange={setCurrencyTarget} value={currencyTarget}/>
                             </div>
                         </div>
