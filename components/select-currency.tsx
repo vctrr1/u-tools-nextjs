@@ -11,9 +11,15 @@ import {
 } from "@/components/ui/select"
 import { currencies, popularCurrencies } from "@/constants/corrency-codes"
 
-export function SelectCurrency() {
+
+interface SelectCurrencyProps {
+  onChange: (value: string) => void; // Função que recebe o valor selecionado
+  value: string; // Valor atual selecionado
+}
+
+export function SelectCurrency({onChange, value}: SelectCurrencyProps) {
   return (
-    <Select>
+    <Select onValueChange={onChange} value={value}>
       <SelectTrigger>
         <SelectValue placeholder="Selecione"/>
       </SelectTrigger>
