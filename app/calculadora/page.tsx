@@ -2,6 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
+import { Plus, Minus, Slash, Asterisk} from 'lucide-react';
 
 export default function Imc() {
 
@@ -71,25 +72,25 @@ export default function Imc() {
     return ( 
         <main className=" flex w-full h-[100%] justify-center items-center">
             <Card className="w-[85%] sm:w-[70%] md:w-[70%] lg:w-[50%] xl:w-[40%] 2xl:w-[30%] mt-5 mb-5">
-                <CardContent className="space-y-4">
-                    <input readOnly type="text" value={display} className="h-16 w-full text-4xl text-right border-none mt-2 p-3 focus:outline-none"/>
-                    <div className="grid grid-cols-4 gap-2 p-2 justify-items-center">
-                        <button className="h-14 w-14 rounded-full bg-orange-400 font-bold cursor-pointer" onClick={() => handleOperator('+')}>+</button>
-                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer" onClick={() => appendToDisplay('7')}>7</button>
-                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer" onClick={() => appendToDisplay('8')}>8</button>
-                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer" onClick={() => appendToDisplay('9')}>9</button>
-                        <button className="h-14 w-14 rounded-full bg-orange-400 font-bold cursor-pointer" onClick={() => handleOperator('-')}>-</button>
-                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer" onClick={() => appendToDisplay('4')}>4</button>
-                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer" onClick={() => appendToDisplay('5')}>5</button>
-                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer" onClick={() => appendToDisplay('6')}>6</button>
-                        <button className="h-14 w-14 rounded-full bg-orange-400 font-bold cursor-pointer" onClick={() => handleOperator('*')}>*</button>
-                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer" onClick={() => appendToDisplay('1')}>1</button>
-                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer" onClick={() => appendToDisplay('2')}>2</button>
-                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer" onClick={() => appendToDisplay('3')}>3</button>
-                        <button className="h-14 w-14 rounded-full bg-orange-400 font-bold cursor-pointer" onClick={() => handleOperator('/')}>/</button>
-                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer" onClick={() => appendToDisplay('0')}>0</button>
-                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer" onClick={() => appendToDisplay('.')}>.</button>
-                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer" onClick={() => clearDisplay()}> C </button>
+                <CardContent className="space-y-10">
+                    <input readOnly type="text" value={display} className="h-16 w-full text-4xl text-right border-none mt-5 p-3 focus:outline-none"/>
+                    <div className="grid grid-cols-4 gap-2 p-2 space-y-2 justify-items-center">
+                        <button className="flex items-center justify-center h-14 w-14 rounded-full bg-orange-400 font-bold cursor-pointer" onClick={() => handleOperator('+')}><Plus size={19}/></button>
+                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer text-xl" onClick={() => appendToDisplay('7')}>7</button>
+                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer text-xl" onClick={() => appendToDisplay('8')}>8</button>
+                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer text-xl" onClick={() => appendToDisplay('9')}>9</button>
+                        <button className="flex items-center justify-center h-14 w-14 rounded-full bg-orange-400 font-bold cursor-pointer" onClick={() => handleOperator('-')}><Minus size={19}/></button>
+                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer text-xl" onClick={() => appendToDisplay('4')}>4</button>
+                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer text-xl" onClick={() => appendToDisplay('5')}>5</button>
+                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer text-xl" onClick={() => appendToDisplay('6')}>6</button>
+                        <button className="flex items-center justify-center h-14 w-14 rounded-full bg-orange-400 font-bold cursor-pointer" onClick={() => handleOperator('*')}><Asterisk size={19}/></button>
+                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer text-xl" onClick={() => appendToDisplay('1')}>1</button>
+                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer text-xl" onClick={() => appendToDisplay('2')}>2</button>
+                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer text-xl" onClick={() => appendToDisplay('3')}>3</button>
+                        <button className="flex items-center justify-center h-14 w-14 rounded-full bg-orange-400 font-bold cursor-pointer" onClick={() => handleOperator('/')}><Slash size={18}/></button>
+                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer text-xl" onClick={() => appendToDisplay('0')}>0</button>
+                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer text-xl" onClick={() => appendToDisplay('.')}>.</button>
+                        <button className="h-14 w-14 rounded-full bg-slate-400 font-bold cursor-pointer text-xl" onClick={() => clearDisplay()}> C </button>
                         <button className="col-span-4 w-full h-14 rounded-full bg-orange-400 font-bold cursor-pointer" onClick={() => calculate()}> = </button>
                     </div>
                 </CardContent>
