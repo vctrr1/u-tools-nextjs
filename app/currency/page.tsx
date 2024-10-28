@@ -57,8 +57,8 @@ function Currency() {
                     </div>
                     <Button onClick={handleSubmit} className="w-full">Converter</Button>
                     {amount !== 0 && rates !== null &&(
-                        <div>
-                          Resultado: {amount} {currencyBase} = {amount * rates} {currencyTarget}
+                        <div className="text-center mt-4 text-lg">
+                          Resultado: {amount} {currencyBase} = {(amount * rates).toFixed(2)} {currencyTarget}
                         </div>
                     )}
                 </CardContent>
