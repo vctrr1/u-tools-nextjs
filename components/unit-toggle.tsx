@@ -12,7 +12,7 @@ interface UnitToggleProps {
 export function UnitToggle({onSelected}: UnitToggleProps) {
   return (
     <ToggleGroup size={"lg"} className="flex flex-wrap gap-2" type="single" onValueChange={onSelected}>
-      <ToggleGroupItem value="Massa" aria-label="Toggle bold" className='flex flex-col pl-2 pr-2'>
+      <ToggleGroupItem value="Massa" aria-label="Toggle bold" className='flex flex-col pl-2 pr-2 h-14'>
         <Weight className="h-6 w-6" />
         Massa
       </ToggleGroupItem>
