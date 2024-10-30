@@ -10,7 +10,7 @@ export default function Conversao() {
 
     return (
         <main className="flex w-full h-[100%] items-center justify-center">
-            <Card className="w-[85%]">
+            <Card className="w-[90%]">
                 <CardHeader className="text-center">
                     <CardTitle>
                         Conversão de Unidades
