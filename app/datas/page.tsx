@@ -1,9 +1,7 @@
-function Imc() {
+export default function Datas() {
     return ( 
         <div>
             <h1>helloDatas</h1>
         </div>
      );
 }
-
-export default Imc;

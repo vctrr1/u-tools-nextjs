@@ -6,7 +6,7 @@ import { Plus, Minus, Slash, Asterisk, Eraser, Equal} from 'lucide-react';
 import { useTheme } from "next-themes";
 import { formatNumber } from "@/lib/format-number";
 
-export default function Imc() {
+export default function Calculadora() {
 
     const {theme} = useTheme()
 
@@ -100,7 +100,7 @@ export default function Imc() {
                         <button className="flex items-center justify-center h-16 w-16 rounded-full bg-orange-400 font-bold cursor-pointer" onClick={() => handleOperator('/')}><Slash size={18}/></button>
                         <button className="h-16 w-16 rounded-full bg-slate-400 font-bold cursor-pointer text-xl" onClick={() => appendToDisplay('0')}>0</button>
                         <button className="h-16 w-16 rounded-full bg-slate-400 font-bold cursor-pointer text-xl" onClick={() => appendToDisplay('.')}>.</button>
-                        <button className="flex items-center justify-center h-16 w-16 rounded-full bg-slate-400 font-bold cursor-pointer text-xl" onClick={() => clearDisplay()}><Eraser size={25}/></button>
+                        <button className="flex items-center justify-center h-16 w-16 rounded-full bg-slate-400 font-bold cursor-pointer text-xl" onClick={() => clearDisplay()}><Eraser size={25} strokeWidth={1.5}/></button>
                         <button className="flex items-center justify-center col-span-4 w-full h-16 rounded-full bg-orange-400 font-bold cursor-pointer" onClick={() => calculate()}><Equal size={24}/></button>
                     </div>
                 </CardContent>
