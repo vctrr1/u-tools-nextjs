@@ -18,7 +18,7 @@ function ConversionTable({conversionResults ,selectedUnit}: ConversionTableProps
                 <tbody className="w-full">
                     {conversionResults.map((result: ConversionResult) => (
                         <tr className="border-b w-full" key={result.unit}>
-                            <td className={`${result.unit === selectedUnit ? "text-rose-300" : ""} flex justify-between w-full`}>
+                            <td className={`${result.unit === selectedUnit ? "text-gray-500" : ""} flex justify-between w-full`}>
                                 <span>{result.unit}</span>
                                 <span>{formatNumber(result.value)}</span>
                             </td>
