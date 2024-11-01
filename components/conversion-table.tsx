@@ -7,10 +7,9 @@ type ConversionTableProps = {
     conversionResults: ConversionResult[];
     selectedUnit: UnitType | undefined;
 };
-
 function ConversionTable({conversionResults ,selectedUnit}: ConversionTableProps) {
     return (
-        <div className="mt-5 w-full">
+        <div className="mt-5 w-full xl:w-[80%] 2xl:w-[80%]">
             <div className="flex justify-between text-lg mb-2 text-rose-300">
                 <h1>Unidade de Medida</h1>
                 <h1>Valor</h1>

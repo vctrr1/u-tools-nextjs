@@ -52,7 +52,7 @@ export default function Conversao() {
 
     return (
         <main className="flex w-full justify-center">
-            <Card className="w-[90%] mt-5">
+            <Card className="w-[90%] sm:w-[90%] md:w-[90%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] mt-5 mb-5">
                 <CardHeader className="text-center">
                     <CardTitle>
                         Conversão de Unidades
@@ -68,7 +68,17 @@ export default function Conversao() {
                     {conversionType && conversionType === "Massa" &&(
                         <>
                         <div className="flex gap-2 mt-5 mb-4 w-full">
-                            <Input placeholder="Quantidade" className="w-[40%]" onChange={(e) => setAmount(Number(e.target.value))}/>
+                            <Input placeholder="Quantidade" className="w-[40%]" onChange={(e) => {
+                                const value = e.target.value.replace(',', '.');
+                                const numericValue = Number(value);
+                                // Verifique se o valor é um número válido
+                                if (!isNaN(numericValue)) {
+                                    setAmount(numericValue);
+                                } else {
+                                    // Se não for um número válido, você pode definir amount como 0 ou deixar como está
+                                    setAmount(0);
+                                }
+                            }}/>
                             <Select onValueChange={(value) => setUnit(value as UnitType)}>
                                 <SelectTrigger>
                                     <SelectValue placeholder="Selcione uma unidade"/>

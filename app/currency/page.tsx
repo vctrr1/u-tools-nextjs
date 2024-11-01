@@ -30,7 +30,7 @@ export default function Currency() {
     }
 
     return ( 
-        <main className="flex flex-col w-full h-[100%] items-center mt-36">
+        <main className="flex flex-col w-full items-center mt-5">
             <Card className="w-[90%] sm:w-[90%] md:w-[90%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] mt-5 mb-5">
                 <CardHeader className="text-center text-lg">
                     <CardTitle className="text-center text-2xl">
