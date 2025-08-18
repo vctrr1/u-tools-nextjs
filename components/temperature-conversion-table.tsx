@@ -1,0 +1,39 @@
+import { formatNumber } from "@/lib/format-number";
+
+type TemperatureType = "Celsius" | "Fahrenheit" | "Kelvin";
+type ConversionResultTemp = { unit: TemperatureType; value: number };
+
+type Props = {
+  conversionResults: ConversionResultTemp[];
+  selectedUnit: TemperatureType | undefined;
+};
+
+export default function TemperatureConversionTable({
+  conversionResults,
+  selectedUnit,
+}: Props) {
+  return (
+    <div className="mt-5 w-full xl:w-[80%] 2xl:w-[80%]">
+      <div className="flex justify-between text-lg mb-2 text-rose-300">
+        <h1>Escala</h1>
+        <h1>Valor</h1>
+      </div>
+      <table className="w-full text-lg">
+        <tbody className="w-full">
+          {conversionResults.map((result) => (
+            <tr className="border-b w-full" key={result.unit}>
+              <td
+                className={`${
+                  result.unit === selectedUnit ? "text-gray-500" : ""
+                } flex justify-between w-full`}
+              >
+                <span>{result.unit}</span>
+                <span>{formatNumber(result.value)}</span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
